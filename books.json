@@ -1,0 +1,51 @@
+[
+    {
+        "title": "Red Rising",
+        "description": "Darrow is a Red, a member of the lowest caste in the color-coded society of the future. Like his fellow Reds, he works all day, believing that he and his people are making the surface of Mars livable for future generations.",
+        "year": 2014,
+        "publisher": "Del Rey",
+        "coverImage": "https://pictures.abebooks.com/isbn/9780345539786-us.jpg"
+    },
+    {
+        "title": "Golden Son",
+        "description": "A lamb among wolves in a cruel world, Darrow finds friendship, respect, and even love—but also the wrath of powerful rivals. To wage and win the war that will change humankind’s destiny, Darrow must confront the treachery arrayed against him.",
+        "year": 2015,
+        "publisher": "Del Rey",
+        "coverImage": "https://pictures.abebooks.com/isbn/9780345539830-us.jpg"
+    },
+    {
+        "title": "Morning Star",
+        "description": "Finally, the time has come. But devotion to honor and hunger for vengeance run deep on both sides. Darrow and his comrades-in-arms face powerful enemies without scruple or mercy.",
+        "year": 2016,
+        "publisher": "Del Rey",
+        "coverImage": "https://pictures.abebooks.com/isbn/9780345539861-us.jpg"
+    },
+    {
+        "title": "Deep Work",
+        "description": "Deep work is the ability to focus without distraction on a cognitively demanding task. It's a skill that allows you to quickly master complicated information and produce better results in less time.",
+        "year": 2012,
+        "publisher": "Piatkus",
+        "coverImage": "https://pictures.abebooks.com/isbn/9780349411903-us.jpg"
+    },
+    {
+        "title": "Digital Minimalism",
+        "description": "Digital minimalists are all around us. They're the calm, happy people who can hold long conversations without furtive glances at their phones.",
+        "year": 2019,
+        "publisher": "Portfolio Penguin",
+        "coverImage": "https://pictures.abebooks.com/isbn/9780241341131-us.jpg"
+    },
+    {
+        "title": "Subtle Art of Not Giving a F*ck",
+        "description": "For decades, we’ve been told that positive thinking is the key to a happy, rich life. 'F**k positivity,'",
+        "year": 2016,
+        "publisher": "Harper",
+        "coverImage": "https://pictures.abebooks.com/isbn/9780062457714-us.jpg"
+    },
+    {
+        "title": "Fahrenheit 451",
+        "description": "Guy Montag is a fireman. His job is to destroy the most illegal of commodities, the printed book, along with the houses in which they are hidden. Montag never questions the destruction and ruin his actions produce.",
+        "year": 1991,
+        "publisher": "Del Rey",
+        "coverImage": "https://pictures.abebooks.com/isbn/9780345342966-us.jpg"
+    }
+]
