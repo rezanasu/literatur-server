@@ -16,25 +16,24 @@ class UserReadController {
             
             if(data) {
                 next({name: "BookExists"})
+                throw "Book Already Exists"
             } else {
-                User_Read.create({
+                return User_Read.create({
                     userId: req.loggedUser.id,
                     bookId,
                     status: status.toLowerCase()
                 })
-                .then(data => {
-                    res.status(201).json(data)
-                })
-                .catch(err => {
-                    if(err.name === "SequelizeValidationError") {
-                        next({name: "ValidationError", currentError: err})
-                    } else {
-                        next(err);
-                    }
-                })
             }
         })
+        .then(data => {
+            res.status(201).json(data)
+        })
         .catch(err => {
+            if(err.name === "SequelizeValidationError") {
+                next({name: "ValidationError", currentError: err})
+            } else {
+                next(err);
+            }
             next(err)
         })
 
