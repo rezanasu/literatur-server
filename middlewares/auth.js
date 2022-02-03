@@ -1,5 +1,5 @@
 const {verifyToken} = require("../helpers/jwt.js");
-const {User} = require("../models")
+const {User, Book, User_Read} = require("../models")
 
 async function authentication(req, res, next) {
 
@@ -43,8 +43,48 @@ async function authentication(req, res, next) {
 
 }
 
-function bookAuthorization(req, res, next) {
+async function bookAuthorization(req, res, next) {
     
+    const bookId = req.params.id;
+
+    try {
+
+        const bookData = await Book.findOne({
+            include: {
+                model: User
+            },
+            where: {
+                id: bookId
+            }
+        })
+
+        if (bookData) {
+            
+            const users = bookData.Users;
+            
+            if (users.length === 0) {
+                next({name:"Unauthenticate"})
+            }
+
+            let isAllowed = false;
+            users.forEach(element => {
+                if(element.id === req.loggedUser.id) {
+                    isAllowed = true;
+                    next()
+                } 
+            })
+
+            if(!isAllowed) {
+                next({name:"Unauthenticate"})
+            }
+
+        } else {
+            next({name: "BookNotFound"})
+        }
+    } catch(err) {
+        next(err)
+    }
+
 }
 
 module.exports = {

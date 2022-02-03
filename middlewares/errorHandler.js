@@ -20,6 +20,14 @@ function errorHandler(err, req, res, next) {
         res.status(400).json({msg: "Invalid Email or Password. Please Try Again.."})
     } else if(err.name === "BookExists") {
         res.status(400).json({msg: "Book Already Exists"})
+    } else if(err.name === "BookNotFound") {
+        res.status(400).json({msg: "Book Not Found"});
+    } else if(err.name === "DatabaseError") {
+        res.status(500).json({msg: "Database Error"})
+    } else if(err.name === "UpdateFailed") {
+        res.status(400).json({msg: "Update Failed"})
+    } else if(err.name === "DeleteFailed") {
+        res.status(400).json({msg: "Delete Failed"})
     }
      
     

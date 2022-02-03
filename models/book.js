@@ -29,7 +29,15 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    description: DataTypes.STRING,
+    description: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [0, 255],
+          msg: "Maximum character length for Description is 255"
+        } 
+      }
+    },
     year: {
       type: DataTypes.INTEGER,
       allowNull: false,
