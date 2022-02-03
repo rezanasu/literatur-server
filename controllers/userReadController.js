@@ -3,13 +3,13 @@ const {User_Read} = require("../models")
 class UserReadController {
 
     static create(req, res, next) {
-        let {bookId} = req.params;
+        let {id} = req.params;
         let {status} = req.body;
         
         User_Read.findOne({
             where: {
                 userId: req.loggedUser.id,
-                bookId
+                bookId: id
             }
         })
         .then(data => {
@@ -20,7 +20,7 @@ class UserReadController {
             } else {
                 return User_Read.create({
                     userId: req.loggedUser.id,
-                    bookId,
+                    bookId: id,
                     status: status.toLowerCase()
                 })
             }
