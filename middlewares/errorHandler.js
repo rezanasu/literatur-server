@@ -36,6 +36,10 @@ function errorHandler(err, req, res, next) {
         res.status(404).json({msg: "Author Not Found"})
     } else if(err.name === "BookAuthorExists") {
         res.status(400).json({msg: "Book Author relation already exists"})
+    } else if(err.name === "GenreNotFound") {
+        res.status(400).json({msg: "Genre Not Found"})
+    } else if(err.name === "BookGenreExists") {
+        res.status(400).json({msg: "Book Genre relation already exists"})
     }
      
     

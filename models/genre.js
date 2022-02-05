@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, InstanceError
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Genre extends Model {
@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         notEmpty: {
           args: true,
@@ -26,6 +27,12 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   }, {
+    hooks: {
+      beforeCreate: (instance, options) => {
+        instance.name = (instance.name).toLowerCase();
+        instance.name = (instance.name).trim();
+      }
+    },
     sequelize,
     modelName: 'Genre',
   });
