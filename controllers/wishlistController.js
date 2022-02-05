@@ -43,7 +43,6 @@ class WishlistController {
             }
         })
         .then(result => {
-            console.log(result, "<<<<<< INI RESULT")
             if(result) {
                 res.status(200).json({
                     msg: "Wishlist successfully deleted"
