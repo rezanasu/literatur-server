@@ -2,6 +2,21 @@ const {Wishlist, Book, User, User_Read} = require("../models");
 
 class WishlistController {
 
+    static findAll(req, res, next) {
+
+        Wishlist.findAll({
+            where: {
+                userId: req.loggedUser.id
+            }
+        })
+        .then(data => {
+            res.status(200).json(data)
+        })
+        .catch(err => {
+            next(err)
+        })
+    }
+
     static create(req, res, next) {
 
         let {bookId} = req.params;
