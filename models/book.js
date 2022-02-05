@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       Book.belongsToMany(models.User, {as: "User_Favourite", through: models.Favourite, foreignKey: "bookId"})
       Book.belongsToMany(models.User, {as: "User_Wishlist", through: models.Wishlist, foreignKey: "bookId"})
       Book.belongsToMany(models.User, {through: models.User_Read, foreignKey: "bookId"})
-      Book.belongsToMany(models.Author, {through: models.Book_Author, foreignKey: "bookId"})
+      Book.belongsToMany(models.Author, {as: "BookAuthor", through: models.Book_Author, foreignKey: "bookId"})
       Book.belongsToMany(models.Genre, {through: models.Book_Genre, foreignKey: "bookId"})
     }
   }

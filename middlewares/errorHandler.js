@@ -32,6 +32,10 @@ function errorHandler(err, req, res, next) {
         res.status(400).json({msg: "Wishlist Already Exists"})
     } else if(err.name === "FavouriteExists") {
         res.status(400).json({msg: "Favourite Already Exists"})
+    } else if(err.name === "AuthorNotFound") {
+        res.status(404).json({msg: "Author Not Found"})
+    } else if(err.name === "BookAuthorExists") {
+        res.status(400).json({msg: "Book Author relation already exists"})
     }
      
     
