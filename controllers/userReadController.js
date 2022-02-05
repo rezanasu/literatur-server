@@ -34,7 +34,6 @@ class UserReadController {
             } else {
                 next(err);
             }
-            next(err)
         })
 
     }

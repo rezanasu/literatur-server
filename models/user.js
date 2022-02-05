@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.User_Read, {foreignKey: "userId"})
       User.belongsToMany(models.Book, {through: models.Favourite, foreignKey: "userId"})
       User.belongsToMany(models.Book, {through: models.Wishlist, foreignKey: "userId"})
+      User.hasMany(models.Wishlist, {foreignKey: "userId"})
     }
   }
   User.init({

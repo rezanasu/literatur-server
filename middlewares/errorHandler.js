@@ -28,6 +28,8 @@ function errorHandler(err, req, res, next) {
         res.status(400).json({msg: "Update Failed"})
     } else if(err.name === "DeleteFailed") {
         res.status(400).json({msg: "Delete Failed"})
+    } else if(err.name === "WishlistExists") {
+        res.status(400).json({msg: "Wishlist Already Exists"})
     }
      
     
