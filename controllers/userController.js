@@ -59,7 +59,6 @@ class UserController {
             }
         })
         .catch(err => {
-            console.log(err.name, "<<<<<<<<<< INI ERROR")
             if(err.name === "SequelizeValidationError") {
                 next({name: "ValidationError", currentError: err})
             } else if(err.name === "SequelizeUniqueConstraintError") {
