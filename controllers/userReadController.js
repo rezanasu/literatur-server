@@ -35,7 +35,10 @@ class UserReadController {
                 next(err);
             }
         })
+    }
 
+    static updateStatus(req, res, next) {
+        
     }
 
     static delete(req, res, next) {

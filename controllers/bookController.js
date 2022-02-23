@@ -1,17 +1,83 @@
-const {Book, User, User_Read} = require("../models")
+const {Book, User, User_Read, Genre, Author, Favourite} = require("../models")
 
 class BookController {
 
     static findAll(req, res, next) {
 
         Book.findAll({
-            include: [{
+            include: [
+            {
                 model: User,
                 required: true,
                 where: {
                     id: req.loggedUser.id
                 }
-            }]
+            },
+            {
+                model: Genre
+            }
+            ]
+        })
+        .then(data => {
+            res.status(200).json(data);
+        })
+        .catch(err => {
+            next(err)
+        })
+    }
+
+    static findCurrentlyReading(req, res, next) {
+        
+        Book.findAll({
+            include: [
+                {
+                    model: User,
+                    required: true,
+                    where: {
+                        id: req.loggedUser.id
+                    }
+                },
+                {
+                    model: User_Read,
+                    where: {
+                        status: "in progress"
+                    }
+                },
+                {
+                    model: Genre
+                }
+            ]
+        })
+        .then(data => {
+            res.status(200).json(data);
+        })
+        .catch(err => {
+            next(err);
+        })
+    }
+
+    static findFavourites(req, res, next) {
+
+        Book.findAll({
+            include: [
+                {
+                    model: User,
+                    required: true,
+                    where: {
+                        id: req.loggedUser.id
+                    }
+                },
+                {
+                    model: Favourite,
+                    where: {
+                        userId: req.loggedUser.id
+                    }
+                },
+                {
+                    model: Genre
+                }
+                
+            ]
         })
         .then(data => {
             res.status(200).json(data);
@@ -25,6 +91,15 @@ class BookController {
         let {id} = req.params
 
         Book.findOne({
+            include: [
+                {
+                    model: Genre
+                },
+                {
+                    model: Author,
+                    as: "BookAuthor"
+                }
+            ],
             where: {
                 id
             }
